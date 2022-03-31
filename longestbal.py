@@ -1,5 +1,7 @@
 #!/bin/python3
 
+## NOT FULLY SOLVED
+
 from hashlib import new
 import math
 from operator import attrgetter

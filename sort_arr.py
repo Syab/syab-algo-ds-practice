@@ -9,7 +9,7 @@ import sys
 def combine_sort(ar1,ar2):
     solved=ar1+ar2
     solved.sort()
-    print(solved.)
+    print(solved)
     return solved
 
 temp_ar=input().split(",")
