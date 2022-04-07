@@ -8,6 +8,7 @@ import re
 import sys
 import collections
 from tkinter import N
+from turtle import position
 from types import new_class
 
 class Node:
@@ -15,7 +16,7 @@ class Node:
         self.data=data
         self.next=None
 
-class LinkedList:
+class SinglyLinkedList:
     def __init__(self):
         self.Head=None
 
@@ -48,12 +49,38 @@ class LinkedList:
                 current = current.next
             newNode = Node(element)
             current.next = newNode
+    
+    def insertAtPosition(self, element, position):
+        counter = 1
+        current = self.Head
+        while counter < position -1 and current is not None:
+            counter +=1
+            current = current.next
+        if position == 1 :
+            newNode = Node(element)
+            newNode.next = current
+            self.Head = newNode
+        else:
+            newNode=Node(element)
+            newNode.next = current.next
+            current.next = newNode
 
-myLinkedList = LinkedList()
-myLinkedList.insertAtBeginning(224)
-myLinkedList.insertAtBeginning(12)
-myLinkedList.printList()
-print("\n")
-myLinkedList.insertAtBeginning(45)
-myLinkedList.printList()
+def insertNodeAtPosition(llist, data, position):
+    llist = SinglyLinkedList()
+    llist.insertAtPosition(data, position)
+    # llist.printList()
+    # print("\n")
+
+llist_count = int(input())
+llist = SinglyLinkedList()
+for _ in range(llist_count):
+    llist_item = int(input())
+    llist.insertAtEnd(llist_item)
+
+# data = int(input())
+# position =int(input())
+
+insertNodeAtPosition(llist, 3, 1)
+# llist_head = insertNodeAtPosition(llist, data, position)
+llist.printList()
 print("\n")
